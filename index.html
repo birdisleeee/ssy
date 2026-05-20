@@ -4,557 +4,259 @@
 <head>  
 <meta charset="UTF-8">  
 <meta name="viewport" content="width=device-width, initial-scale=1.0">  
-<title>SHAKER</title>  
+<title>SHAKER — 私人调酒手册</title>  
 <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;1,400&family=Noto+Serif+SC:wght@300;400&family=Courier+Prime&display=swap" rel="stylesheet">  
 <style>  
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }  
-  
 :root {  
-–black: #080808;  
-–off-white: #e8e4de;  
-–dim: #6b6560;  
-–line: rgba(232,228,222,0.12);  
-–accent: #e8e4de;  
+  --black: #080808;  
+  --off-white: #e8e4de;  
+  --dim: #6b6560;  
+  --line: rgba(232,228,222,0.12);  
 }  
-  
-html { scroll-behavior: smooth; }  
-  
+html {  
+  scroll-behavior: smooth;  
+  background: #080808 !important;  
+  min-height: 100%;  
+}  
 body {  
-background: var(–black);  
-color: var(–off-white);  
-font-family: ‘Noto Serif SC’, serif;  
-font-weight: 300;  
-cursor: crosshair;  
-overflow-x: hidden;  
+  background: #080808 !important;  
+  color: var(--off-white);  
+  font-family: 'Noto Serif SC', serif;  
+  font-weight: 300;  
+  overflow-x: hidden;  
+  min-height: 100vh;  
 }  
   
-/* ── HERO ─────────────────────────────────── */  
+/* ── NAV / HERO ─── */  
 .hero {  
-position: relative;  
-height: 100vh;  
-display: flex;  
-flex-direction: column;  
-border-bottom: 1px solid var(–line);  
-overflow: hidden;  
+position: relative; height: 100vh;  
+display: flex; flex-direction: column;  
+border-bottom: 1px solid var(–line); overflow: hidden;  
 }  
-  
 .nav {  
-position: absolute;  
-top: 0; left: 0; right: 0;  
-display: flex;  
-justify-content: space-between;  
-align-items: flex-start;  
-padding: 28px 36px;  
-z-index: 10;  
+position: absolute; top: 0; left: 0; right: 0;  
+display: flex; justify-content: space-between; align-items: flex-start;  
+padding: 28px 36px; z-index: 10;  
 }  
-  
 .nav-brand {  
 font-family: ‘Courier Prime’, monospace;  
-font-size: 0.7rem;  
-letter-spacing: 0.08em;  
-color: var(–off-white);  
-opacity: 0.7;  
+font-size: 0.7rem; letter-spacing: 0.08em; color: var(–off-white); opacity: 0.7;  
 }  
-  
-.nav-links {  
-display: flex;  
-gap: 36px;  
-}  
+.nav-links { display: flex; gap: 36px; }  
 .nav-links a {  
 font-family: ‘Courier Prime’, monospace;  
-font-size: 0.62rem;  
-letter-spacing: 0.22em;  
-text-transform: uppercase;  
-color: var(–off-white);  
-opacity: 0.5;  
-text-decoration: none;  
-transition: opacity 0.2s;  
+font-size: 0.62rem; letter-spacing: 0.22em; text-transform: uppercase;  
+color: var(–off-white); opacity: 0.5; text-decoration: none; transition: opacity 0.2s;  
 }  
 .nav-links a:hover { opacity: 1; }  
-  
-/* hero big text */  
 .hero-body {  
-flex: 1;  
-display: flex;  
-align-items: flex-end;  
-padding: 0 36px 52px;  
+flex: 1; display: flex; align-items: flex-end; padding: 0 36px 52px;  
 }  
-  
 .hero-text {  
 font-family: ‘EB Garamond’, serif;  
 font-size: clamp(3.2rem, 8vw, 7rem);  
-font-weight: 400;  
-line-height: 0.92;  
-letter-spacing: -0.01em;  
-color: var(–off-white);  
+font-weight: 400; line-height: 0.92;  
 animation: fadeUp 1.2s ease both;  
 }  
-  
-.hero-text em {  
-font-style: italic;  
-opacity: 0.45;  
-}  
-  
+.hero-text em { font-style: italic; opacity: 0.45; }  
 .hero-meta {  
-position: absolute;  
-bottom: 52px;  
-right: 36px;  
-text-align: right;  
-animation: fadeUp 1.4s ease both;  
+position: absolute; bottom: 52px; right: 36px;  
+text-align: right; animation: fadeUp 1.4s ease both;  
 }  
 .hero-meta p {  
 font-family: ‘Courier Prime’, monospace;  
-font-size: 0.62rem;  
-letter-spacing: 0.18em;  
-color: var(–dim);  
-line-height: 2;  
-text-transform: uppercase;  
+font-size: 0.62rem; letter-spacing: 0.18em; color: var(–dim); line-height: 2; text-transform: uppercase;  
 }  
-  
 @keyframes fadeUp {  
 from { opacity:0; transform: translateY(24px); }  
-to { opacity:1; transform: translateY(0); }  
+to   { opacity:1; transform: translateY(0); }  
 }  
   
-/* ── TOOL SECTION ──────────────────────────── */  
+/* ── TOOL ─── */  
 .tool-section {  
-display: grid;  
-grid-template-columns: 1fr 1fr;  
-min-height: 100vh;  
-border-bottom: 1px solid var(–line);  
+display: grid; grid-template-columns: 1fr 1fr;  
+min-height: 100vh; border-bottom: 1px solid var(–line);  
 }  
-  
 .tool-left {  
-border-right: 1px solid var(–line);  
-padding: 52px 48px;  
-display: flex;  
-flex-direction: column;  
-gap: 36px;  
+border-right: 1px solid var(–line); padding: 52px 48px;  
+display: flex; flex-direction: column; gap: 28px;  
 }  
-  
 .tool-right {  
-padding: 52px 48px;  
-display: flex;  
-flex-direction: column;  
-justify-content: space-between;  
+padding: 52px 48px; display: flex; flex-direction: column; justify-content: space-between;  
 }  
-  
 .section-index {  
 font-family: ‘Courier Prime’, monospace;  
-font-size: 0.6rem;  
-letter-spacing: 0.25em;  
-color: var(–dim);  
-text-transform: uppercase;  
-margin-bottom: 32px;  
+font-size: 0.6rem; letter-spacing: 0.25em; color: var(–dim); text-transform: uppercase;  
 }  
-  
 .tool-title {  
 font-family: ‘EB Garamond’, serif;  
-font-size: clamp(2rem, 4vw, 3.2rem);  
-font-weight: 400;  
-line-height: 1.1;  
-margin-bottom: 36px;  
+font-size: clamp(2rem, 4vw, 3.2rem); font-weight: 400; line-height: 1.1;  
 }  
-  
-/* ingredient chips */  
-.chips-wrap {  
-display: flex;  
-flex-wrap: wrap;  
-gap: 6px;  
-min-height: 48px;  
-margin-bottom: 8px;  
-}  
-  
+.chips-wrap { display: flex; flex-wrap: wrap; gap: 6px; min-height: 36px; }  
 .chip {  
-display: inline-flex;  
-align-items: center;  
-gap: 8px;  
-border: 1px solid rgba(232,228,222,0.3);  
-padding: 5px 14px;  
-font-family: ‘Courier Prime’, monospace;  
-font-size: 0.68rem;  
-letter-spacing: 0.06em;  
-color: var(–off-white);  
-animation: chipIn 0.2s ease;  
+display: inline-flex; align-items: center; gap: 8px;  
+border: 1px solid rgba(232,228,222,0.3); padding: 5px 14px;  
+font-family: ‘Courier Prime’, monospace; font-size: 0.68rem; letter-spacing: 0.06em;  
+color: var(–off-white); animation: chipIn 0.2s ease;  
 }  
-@keyframes chipIn {  
-from { opacity:0; transform:scale(0.93); }  
-to { opacity:1; transform:scale(1); }  
-}  
-  
+@keyframes chipIn { from{opacity:0;transform:scale(0.93)} to{opacity:1;transform:scale(1)} }  
 .chip button {  
-background: none; border: none; cursor: pointer;  
-color: var(–dim); font-size: 1rem; line-height:1; padding:0;  
-transition: color 0.15s;  
+background:none; border:none; cursor:pointer; color:var(–dim);  
+font-size:1rem; line-height:1; padding:0; transition:color 0.15s;  
 }  
 .chip button:hover { color: var(–off-white); }  
-  
-/* quick adds */  
-.quick-row {  
-display: flex;  
-flex-wrap: wrap;  
-gap: 5px;  
-margin-bottom: 28px;  
-}  
+.quick-row { display: flex; flex-wrap: wrap; gap: 5px; }  
 .quick-btn {  
-background: none;  
-border: 1px solid var(–line);  
-color: var(–dim);  
-font-family: ‘Courier Prime’, monospace;  
-font-size: 0.62rem;  
-letter-spacing: 0.08em;  
-padding: 5px 12px;  
-cursor: pointer;  
-transition: all 0.15s;  
+background:none; border:1px solid var(–line); color:var(–dim);  
+font-family:‘Courier Prime’,monospace; font-size:0.62rem; letter-spacing:0.08em;  
+padding:5px 12px; cursor:pointer; transition:all 0.15s;  
 }  
-.quick-btn:hover {  
-border-color: rgba(232,228,222,0.4);  
-color: var(–off-white);  
-}  
-  
-/* input row */  
+.quick-btn:hover { border-color:rgba(232,228,222,0.4); color:var(–off-white); }  
 .input-row {  
-display: flex;  
-border-bottom: 1px solid rgba(232,228,222,0.25);  
-margin-bottom: 40px;  
+display:flex; border-bottom:1px solid rgba(232,228,222,0.25);  
 }  
 .input-row input {  
-flex: 1;  
-background: none; border: none;  
-color: var(–off-white);  
-font-family: ‘EB Garamond’, serif;  
-font-size: 1rem;  
-padding: 10px 0;  
-outline: none;  
-font-style: italic;  
+flex:1; background:none; border:none; color:var(–off-white);  
+font-family:‘EB Garamond’,serif; font-size:1rem; font-style:italic;  
+padding:10px 0; outline:none;  
 }  
-.input-row input::placeholder { color: var(–dim); }  
-.input-row input:focus { border-bottom-color: var(–off-white); }  
+.input-row input::placeholder { color:var(–dim); }  
 .input-row button {  
-background: none; border: none;  
-color: var(–dim);  
-font-family: ‘Courier Prime’, monospace;  
-font-size: 0.6rem;  
-letter-spacing: 0.2em;  
-text-transform: uppercase;  
-cursor: pointer;  
-padding: 10px 0 10px 16px;  
-transition: color 0.15s;  
+background:none; border:none; color:var(–dim);  
+font-family:‘Courier Prime’,monospace; font-size:0.6rem; letter-spacing:0.2em;  
+text-transform:uppercase; cursor:pointer; padding:10px 0 10px 16px; transition:color 0.15s;  
 }  
-.input-row button:hover { color: var(–off-white); }  
-  
-/* generate button */  
+.input-row button:hover { color:var(–off-white); }  
 .gen-btn {  
-width: 100%;  
-background: none;  
-border: 1px solid rgba(232,228,222,0.35);  
-color: var(–off-white);  
-font-family: ‘EB Garamond’, serif;  
-font-size: 1.15rem;  
-font-style: italic;  
-letter-spacing: 0.04em;  
-padding: 18px;  
-cursor: pointer;  
-transition: all 0.25s;  
-margin-top: auto;  
+width:100%; background:none; border:1px solid rgba(232,228,222,0.35); color:var(–off-white);  
+font-family:‘EB Garamond’,serif; font-size:1.15rem; font-style:italic;  
+padding:18px; cursor:pointer; transition:all 0.25s; margin-top:auto;  
 }  
-.gen-btn:hover:not(:disabled) {  
-background: var(–off-white);  
-color: var(–black);  
-}  
-.gen-btn:disabled { opacity: 0.25; cursor: not-allowed; }  
+.gen-btn:hover:not(:disabled) { background:var(–off-white); color:var(–black); }  
+.gen-btn:disabled { opacity:0.25; cursor:not-allowed; }  
   
-/* result side */  
-.result-area {  
-flex: 1;  
-display: flex;  
-flex-direction: column;  
-justify-content: center;  
-}  
-  
+.result-area { flex:1; display:flex; flex-direction:column; justify-content:center; }  
 .result-placeholder {  
-color: var(–dim);  
-font-family: ‘Courier Prime’, monospace;  
-font-size: 0.62rem;  
-letter-spacing: 0.2em;  
-text-transform: uppercase;  
-text-align: center;  
-opacity: 0.4;  
+color:var(–dim); font-family:‘Courier Prime’,monospace;  
+font-size:0.62rem; letter-spacing:0.2em; text-transform:uppercase; text-align:center; opacity:0.4;  
 }  
-  
-.result-content { display: none; animation: fadeUp 0.5s ease; }  
-  
 .result-name {  
-font-family: ‘EB Garamond’, serif;  
-font-size: clamp(2.4rem, 5vw, 4rem);  
-font-weight: 400;  
-font-style: italic;  
-line-height: 1;  
-margin-bottom: 8px;  
+font-family:‘EB Garamond’,serif;  
+font-size:clamp(2.4rem,5vw,4rem); font-weight:400; font-style:italic; line-height:1; margin-bottom:8px;  
 }  
-  
 .result-style {  
-font-family: ‘Courier Prime’, monospace;  
-font-size: 0.6rem;  
-letter-spacing: 0.25em;  
-color: var(–dim);  
-text-transform: uppercase;  
-margin-bottom: 36px;  
+font-family:‘Courier Prime’,monospace;  
+font-size:0.6rem; letter-spacing:0.25em; color:var(–dim); text-transform:uppercase; margin-bottom:36px;  
 }  
-  
-.result-body {  
-font-size: 0.85rem;  
-line-height: 2;  
-color: rgba(232,228,222,0.75);  
-}  
-  
+.result-body { font-size:0.85rem; line-height:2; color:rgba(232,228,222,0.75); }  
 .result-body .rh {  
-font-family: ‘Courier Prime’, monospace;  
-font-size: 0.58rem;  
-letter-spacing: 0.25em;  
-text-transform: uppercase;  
-color: var(–dim);  
-margin: 20px 0 10px;  
-display: block;  
+font-family:‘Courier Prime’,monospace; font-size:0.58rem; letter-spacing:0.25em;  
+text-transform:uppercase; color:var(–dim); margin:20px 0 10px; display:block;  
 }  
-  
-.result-note {  
-margin-top: 24px;  
-padding-top: 20px;  
-border-top: 1px solid var(–line);  
-font-family: ‘EB Garamond’, serif;  
-font-style: italic;  
-font-size: 0.9rem;  
-color: var(–dim);  
-line-height: 1.8;  
-}  
-  
-/* loading bar */  
 .loading-bar {  
-height: 1px;  
-background: linear-gradient(90deg, transparent 0%, var(–off-white) 50%, transparent 100%);  
-background-size: 50% 100%;  
-background-position: -100% 0;  
-animation: sweep 1.4s ease-in-out infinite;  
-margin-bottom: 32px;  
-display: none;  
+height:1px;  
+background:linear-gradient(90deg,transparent 0%,var(–off-white) 50%,transparent 100%);  
+background-size:50% 100%; background-position:-100% 0;  
+animation:sweep 1.4s ease-in-out infinite; margin-bottom:32px; display:none;  
 }  
-@keyframes sweep { to { background-position: 250% 0; } }  
+@keyframes sweep { to { background-position:250% 0; } }  
   
-/* ── RECIPES SECTION ───────────────────────── */  
-.recipes-section {  
-border-bottom: 1px solid var(–line);  
-}  
-  
-.recipes-header {  
-display: grid;  
-grid-template-columns: 1fr 1fr;  
-border-bottom: 1px solid var(–line);  
-}  
-  
-.recipes-header-cell {  
-padding: 28px 36px;  
-font-family: ‘Courier Prime’, monospace;  
-font-size: 0.6rem;  
-letter-spacing: 0.25em;  
-color: var(–dim);  
-text-transform: uppercase;  
-}  
-.recipes-header-cell:first-child {  
-border-right: 1px solid var(–line);  
-}  
-  
-/* recipe row = full-width clickable */  
-.recipe-row {  
-display: grid;  
-grid-template-columns: 1fr 1fr;  
-border-bottom: 1px solid var(–line);  
-cursor: pointer;  
-transition: background 0.2s;  
-}  
-.recipe-row:hover { background: rgba(232,228,222,0.03); }  
-  
-.recipe-row-left {  
-padding: 36px;  
-border-right: 1px solid var(–line);  
-display: flex;  
-flex-direction: column;  
-justify-content: space-between;  
-}  
-  
-.recipe-number {  
-font-family: ‘Courier Prime’, monospace;  
-font-size: 0.58rem;  
-letter-spacing: 0.2em;  
-color: var(–dim);  
-margin-bottom: 20px;  
-}  
-  
-.recipe-name {  
-font-family: ‘EB Garamond’, serif;  
-font-size: clamp(1.8rem, 3vw, 2.8rem);  
-font-weight: 400;  
-font-style: italic;  
-line-height: 1;  
-}  
-  
-.recipe-tags {  
-display: flex;  
-gap: 6px;  
-flex-wrap: wrap;  
-margin-top: 20px;  
-}  
-.recipe-tag {  
-font-family: ‘Courier Prime’, monospace;  
-font-size: 0.58rem;  
-letter-spacing: 0.1em;  
-color: var(–dim);  
-border: 1px solid var(–line);  
-padding: 3px 9px;  
-}  
-  
-.recipe-row-right {  
-padding: 36px;  
-display: flex;  
-flex-direction: column;  
-}  
-  
-.recipe-toggle-hint {  
-font-family: ‘Courier Prime’, monospace;  
-font-size: 0.58rem;  
-letter-spacing: 0.2em;  
-color: var(–dim);  
-text-transform: uppercase;  
-text-align: right;  
-margin-bottom: 20px;  
-transition: color 0.2s;  
-}  
-.recipe-row:hover .recipe-toggle-hint { color: var(–off-white); }  
-  
-.recipe-detail {  
-display: none;  
-animation: fadeUp 0.3s ease;  
-}  
-.recipe-row.open .recipe-detail { display: block; }  
-.recipe-row.open .recipe-toggle-hint { color: var(–off-white); }  
-  
-.recipe-steps {  
-list-style: none;  
-margin-top: 8px;  
-}  
-.recipe-steps li {  
-display: flex;  
-gap: 14px;  
-padding: 10px 0;  
-border-bottom: 1px solid var(–line);  
-font-size: 0.82rem;  
-color: rgba(232,228,222,0.65);  
-line-height: 1.7;  
-}  
-.recipe-steps li:last-child { border-bottom: none; }  
-.step-n {  
-font-family: ‘EB Garamond’, serif;  
-font-style: italic;  
-color: var(–dim);  
-min-width: 18px;  
-font-size: 1rem;  
-}  
-  
-.recipe-variation {  
-margin-top: 20px;  
-padding: 12px 0;  
-border-top: 1px solid var(–line);  
-font-family: ‘EB Garamond’, serif;  
-font-style: italic;  
-font-size: 0.82rem;  
-color: var(–dim);  
-}  
-  
-/* ── PHOTO STRIP ───────────────────────────── */  
-.photo-strip {  
-display: grid;  
-grid-template-columns: 1fr 1fr;  
-height: 70vh;  
-}  
-  
-.photo-cell {  
-position: relative;  
-overflow: hidden;  
-border-right: 1px solid var(–line);  
-}  
-.photo-cell:last-child { border-right: none; }  
-  
+/* ── PHOTOS ─── */  
+.photo-strip { display:grid; grid-template-columns:1fr 1fr; height:70vh; }  
+.photo-cell { position:relative; overflow:hidden; border-right:1px solid var(–line); }  
+.photo-cell:last-child { border-right:none; }  
 .photo-cell img {  
-width: 100%;  
-height: 100%;  
-object-fit: cover;  
-filter: brightness(0.75) contrast(1.05);  
-transition: transform 0.8s cubic-bezier(0.25,0.46,0.45,0.94), filter 0.4s;  
-display: block;  
+width:100%; height:100%; object-fit:cover;  
+filter:brightness(0.75) contrast(1.05);  
+transition:transform 0.8s cubic-bezier(0.25,0.46,0.45,0.94), filter 0.4s; display:block;  
 }  
-.photo-cell:hover img {  
-transform: scale(1.04);  
-filter: brightness(0.88) contrast(1.02);  
-}  
-  
-.photo-label {  
-position: absolute;  
-bottom: 28px;  
-left: 28px;  
-}  
+.photo-cell:hover img { transform:scale(1.04); filter:brightness(0.88) contrast(1.02); }  
+.photo-label { position:absolute; bottom:28px; left:28px; }  
 .photo-label-name {  
-font-family: ‘EB Garamond’, serif;  
-font-size: 1.6rem;  
-font-style: italic;  
-color: var(–off-white);  
-line-height: 1;  
-text-shadow: 0 2px 20px rgba(0,0,0,0.6);  
+font-family:‘EB Garamond’,serif; font-size:1.6rem; font-style:italic;  
+color:var(–off-white); line-height:1; text-shadow:0 2px 20px rgba(0,0,0,0.6);  
 }  
 .photo-label-sub {  
-font-family: ‘Courier Prime’, monospace;  
-font-size: 0.58rem;  
-letter-spacing: 0.2em;  
-color: rgba(232,228,222,0.5);  
-text-transform: uppercase;  
-margin-top: 4px;  
+font-family:‘Courier Prime’,monospace; font-size:0.58rem; letter-spacing:0.2em;  
+color:rgba(232,228,222,0.5); text-transform:uppercase; margin-top:4px;  
 }  
   
-/* ── FOOTER ────────────────────────────────── */  
+/* ── RECIPES ─── */  
+.recipes-section { border-bottom:1px solid var(–line); }  
+.recipes-header { display:grid; grid-template-columns:1fr 1fr; border-bottom:1px solid var(–line); }  
+.recipes-header-cell {  
+padding:28px 36px; font-family:‘Courier Prime’,monospace;  
+font-size:0.6rem; letter-spacing:0.25em; color:var(–dim); text-transform:uppercase;  
+}  
+.recipes-header-cell:first-child { border-right:1px solid var(–line); }  
+.recipe-row {  
+display:grid; grid-template-columns:1fr 1fr;  
+border-bottom:1px solid var(–line); cursor:pointer; transition:background 0.2s;  
+}  
+.recipe-row:hover { background:rgba(232,228,222,0.03); }  
+.recipe-row-left {  
+padding:36px; border-right:1px solid var(–line);  
+display:flex; flex-direction:column; justify-content:space-between;  
+}  
+.recipe-number {  
+font-family:‘Courier Prime’,monospace; font-size:0.58rem; letter-spacing:0.2em; color:var(–dim); margin-bottom:20px;  
+}  
+.recipe-name {  
+font-family:‘EB Garamond’,serif; font-size:clamp(1.8rem,3vw,2.8rem);  
+font-weight:400; font-style:italic; line-height:1;  
+}  
+.recipe-tags { display:flex; gap:6px; flex-wrap:wrap; margin-top:20px; }  
+.recipe-tag {  
+font-family:‘Courier Prime’,monospace; font-size:0.58rem; letter-spacing:0.1em;  
+color:var(–dim); border:1px solid var(–line); padding:3px 9px;  
+}  
+.recipe-row-right { padding:36px; display:flex; flex-direction:column; }  
+.recipe-toggle-hint {  
+font-family:‘Courier Prime’,monospace; font-size:0.58rem; letter-spacing:0.2em;  
+color:var(–dim); text-transform:uppercase; text-align:right; margin-bottom:20px; transition:color 0.2s;  
+}  
+.recipe-row:hover .recipe-toggle-hint { color:var(–off-white); }  
+.recipe-detail { display:none; animation:fadeUp 0.3s ease; }  
+.recipe-row.open .recipe-detail { display:block; }  
+.recipe-row.open .recipe-toggle-hint { color:var(–off-white); }  
+.recipe-steps { list-style:none; margin-top:8px; }  
+.recipe-steps li {  
+display:flex; gap:14px; padding:10px 0; border-bottom:1px solid var(–line);  
+font-size:0.82rem; color:rgba(232,228,222,0.65); line-height:1.7;  
+}  
+.recipe-steps li:last-child { border-bottom:none; }  
+.step-n { font-family:‘EB Garamond’,serif; font-style:italic; color:var(–dim); min-width:18px; font-size:1rem; }  
+.recipe-variation {  
+margin-top:20px; padding:12px 0; border-top:1px solid var(–line);  
+font-family:‘EB Garamond’,serif; font-style:italic; font-size:0.82rem; color:var(–dim);  
+}  
 footer {  
-padding: 32px 36px;  
-display: flex;  
-justify-content: space-between;  
-align-items: center;  
+padding:32px 36px; display:flex; justify-content:space-between; align-items:center;  
 }  
 footer p {  
-font-family: ‘Courier Prime’, monospace;  
-font-size: 0.58rem;  
-letter-spacing: 0.18em;  
-color: var(–dim);  
-text-transform: uppercase;  
+font-family:‘Courier Prime’,monospace; font-size:0.58rem; letter-spacing:0.18em;  
+color:var(–dim); text-transform:uppercase;  
 }  
   
-/* ── MOBILE ────────────────────────────────── */  
-@media (max-width: 700px) {  
-.tool-section { grid-template-columns: 1fr; }  
-.tool-left { border-right: none; border-bottom: 1px solid var(–line); padding: 36px 24px; }  
-.tool-right { padding: 36px 24px; }  
-.recipes-header { grid-template-columns: 1fr; }  
-.recipes-header-cell:first-child { border-right: none; border-bottom: 1px solid var(–line); }  
-.recipe-row { grid-template-columns: 1fr; }  
-.recipe-row-left { border-right: none; border-bottom: 1px solid var(–line); }  
-.photo-strip { grid-template-columns: 1fr; height: auto; }  
-.photo-cell { height: 60vw; border-right: none; border-bottom: 1px solid var(–line); }  
-.nav { padding: 20px; }  
-.hero-body { padding: 0 24px 40px; }  
-.hero-meta { right: 24px; bottom: 40px; }  
+@media (max-width:700px) {  
+.tool-section { grid-template-columns:1fr; }  
+.tool-left { border-right:none; border-bottom:1px solid var(–line); padding:36px 24px; }  
+.tool-right { padding:36px 24px; min-height:60vh; }  
+.recipes-header { grid-template-columns:1fr; }  
+.recipes-header-cell:first-child { border-right:none; border-bottom:1px solid var(–line); }  
+.recipe-row { grid-template-columns:1fr; }  
+.recipe-row-left { border-right:none; border-bottom:1px solid var(–line); }  
+.photo-strip { grid-template-columns:1fr; height:auto; }  
+.photo-cell { height:65vw; border-right:none; border-bottom:1px solid var(–line); }  
+.nav { padding:20px; }  
+.hero-body { padding:0 24px 40px; }  
+.hero-meta { right:24px; bottom:40px; }  
 }  
 </style>  
   
 </head>  
 <body>  
-  
-<!-- HERO -->  
   
 <section class="hero">  
   <nav class="nav">  
@@ -565,10 +267,7 @@ text-transform: uppercase;
     </div>  
   </nav>  
   <div class="hero-body">  
-    <h1 class="hero-text">  
-      手边的酒<br>  
-      <em>今晚的味道</em>  
-    </h1>  
+    <h1 class="hero-text">手边的酒<br><em>今晚的味道</em></h1>  
   </div>  
   <div class="hero-meta">  
     <p>私人调酒手册</p>  
@@ -576,55 +275,43 @@ text-transform: uppercase;
   </div>  
 </section>  
   
-<!-- TOOL -->  
-  
 <section class="tool-section" id="tool">  
   <div class="tool-left">  
-    <div>  
-      <p class="section-index">— 01 · 今晚手边有什么</p>  
-      <h2 class="tool-title">告诉我<br>你的原料</h2>  
+    <p class="section-index">— 01 · 今晚手边有什么</p>  
+    <h2 class="tool-title">告诉我<br>你的原料</h2>  
+    <div class="chips-wrap" id="chipsWrap"></div>  
+    <div class="quick-row">  
+      <button class="quick-btn" onclick="quickAdd(this)">金酒</button>  
+      <button class="quick-btn" onclick="quickAdd(this)">伏特加</button>  
+      <button class="quick-btn" onclick="quickAdd(this)">朗姆酒</button>  
+      <button class="quick-btn" onclick="quickAdd(this)">威士忌</button>  
+      <button class="quick-btn" onclick="quickAdd(this)">龙舌兰</button>  
+      <button class="quick-btn" onclick="quickAdd(this)">汤力水</button>  
+      <button class="quick-btn" onclick="quickAdd(this)">苏打水</button>  
+      <button class="quick-btn" onclick="quickAdd(this)">柠檬</button>  
+      <button class="quick-btn" onclick="quickAdd(this)">青柠</button>  
+      <button class="quick-btn" onclick="quickAdd(this)">糖浆</button>  
+      <button class="quick-btn" onclick="quickAdd(this)">冰块</button>  
+      <button class="quick-btn" onclick="quickAdd(this)">蛋清</button>  
+      <button class="quick-btn" onclick="quickAdd(this)">蛋黄</button>  
+      <button class="quick-btn" onclick="quickAdd(this)">橙汁</button>  
+      <button class="quick-btn" onclick="quickAdd(this)">可乐</button>  
+      <button class="quick-btn" onclick="quickAdd(this)">姜汁汽水</button>  
     </div>  
-  
-<div class="chips-wrap" id="chipsWrap"></div>  
-  
-<div class="quick-row" id="quickRow">  
-  <button class="quick-btn" onclick="quickAdd(this)">金酒</button>  
-  <button class="quick-btn" onclick="quickAdd(this)">伏特加</button>  
-  <button class="quick-btn" onclick="quickAdd(this)">朗姆酒</button>  
-  <button class="quick-btn" onclick="quickAdd(this)">威士忌</button>  
-  <button class="quick-btn" onclick="quickAdd(this)">龙舌兰</button>  
-  <button class="quick-btn" onclick="quickAdd(this)">汤力水</button>  
-  <button class="quick-btn" onclick="quickAdd(this)">苏打水</button>  
-  <button class="quick-btn" onclick="quickAdd(this)">柠檬</button>  
-  <button class="quick-btn" onclick="quickAdd(this)">青柠</button>  
-  <button class="quick-btn" onclick="quickAdd(this)">糖浆</button>  
-  <button class="quick-btn" onclick="quickAdd(this)">冰块</button>  
-  <button class="quick-btn" onclick="quickAdd(this)">蛋清</button>  
-  <button class="quick-btn" onclick="quickAdd(this)">蛋黄</button>  
-  <button class="quick-btn" onclick="quickAdd(this)">橙汁</button>  
-  <button class="quick-btn" onclick="quickAdd(this)">可乐</button>  
-</div>  
-  
-<div class="input-row">  
-  <input type="text" id="ingInput" placeholder="输入其他原料…" />  
-  <button onclick="addIng()">加入 →</button>  
-</div>  
-  
-<button class="gen-btn" id="genBtn" onclick="generate()" disabled>  
-  帮我调一杯  
-</button>  
-  
+    <div class="input-row">  
+      <input type="text" id="ingInput" placeholder="输入其他原料…" />  
+      <button onclick="addIng()">加入 →</button>  
+    </div>  
+    <button class="gen-btn" id="genBtn" onclick="generate()" disabled>帮我调一杯</button>  
   </div>  
   
-  <div class="tool-right" id="resultPanel">  
+  <div class="tool-right">  
     <p class="section-index">— 02 · 今晚的酒</p>  
     <div class="result-area" id="resultArea">  
       <p class="result-placeholder">选好原料<br>等待灵感</p>  
     </div>  
   </div>  
 </section>  
-  
-<!-- PHOTO STRIP -->  
   
 <div class="photo-strip">  
   <div class="photo-cell">  
@@ -643,14 +330,11 @@ text-transform: uppercase;
   </div>  
 </div>  
   
-<!-- RECIPES -->  
-  
 <section class="recipes-section" id="recipes">  
   <div class="recipes-header">  
     <div class="recipes-header-cell">配方本 / My Recipes</div>  
     <div class="recipes-header-cell">点击展开步骤</div>  
   </div>  
-  
   <div class="recipe-row" onclick="toggleRecipe(this)">  
     <div class="recipe-row-left">  
       <div>  
@@ -658,11 +342,8 @@ text-transform: uppercase;
         <h3 class="recipe-name">金菲士<br><span style="font-size:0.55em;letter-spacing:0.15em;font-style:normal;font-family:'Courier Prime',monospace;color:var(--dim)">GIN FIZZ</span></h3>  
       </div>  
       <div class="recipe-tags">  
-        <span class="recipe-tag">金酒</span>  
-        <span class="recipe-tag">柠檬汁</span>  
-        <span class="recipe-tag">糖浆</span>  
-        <span class="recipe-tag">苏打水</span>  
-        <span class="recipe-tag">冰块</span>  
+        <span class="recipe-tag">金酒</span><span class="recipe-tag">柠檬汁</span>  
+        <span class="recipe-tag">糖浆</span><span class="recipe-tag">苏打水</span><span class="recipe-tag">冰块</span>  
       </div>  
     </div>  
     <div class="recipe-row-right">  
@@ -679,7 +360,6 @@ text-transform: uppercase;
       </div>  
     </div>  
   </div>  
-  
   <div class="recipe-row" onclick="toggleRecipe(this)">  
     <div class="recipe-row-left">  
       <div>  
@@ -687,10 +367,8 @@ text-transform: uppercase;
         <h3 class="recipe-name">金汤力<br><span style="font-size:0.55em;letter-spacing:0.15em;font-style:normal;font-family:'Courier Prime',monospace;color:var(--dim)">GIN & TONIC</span></h3>  
       </div>  
       <div class="recipe-tags">  
-        <span class="recipe-tag">哥顿金酒</span>  
-        <span class="recipe-tag">怡泉汤力水</span>  
-        <span class="recipe-tag">青柠</span>  
-        <span class="recipe-tag">冰块</span>  
+        <span class="recipe-tag">哥顿金酒</span><span class="recipe-tag">怡泉汤力水</span>  
+        <span class="recipe-tag">青柠</span><span class="recipe-tag">冰块</span>  
       </div>  
     </div>  
     <div class="recipe-row-right">  
@@ -698,10 +376,10 @@ text-transform: uppercase;
       <div class="recipe-detail">  
         <ul class="recipe-steps">  
           <li><span class="step-n">1</span><span>洗冰：纯净水冲洗冰块保证纯净</span></li>  
-          <li><span class="step-n">2</span><span>冰杯：加满冰块快速搅拌，倒掉冰水，去除冰箱味</span></li>  
-          <li><span class="step-n">3</span><span>金酒与汤力水提前冷藏至 3–5°C；青柠桌面轻滚，切角状，去白芯</span></li>  
+          <li><span class="step-n">2</span><span>冰杯：加满冰块快速搅拌，倒掉冰水</span></li>  
+          <li><span class="step-n">3</span><span>金酒与汤力水提前冷藏至 3–5°C；青柠桌面轻滚切角，去白芯</span></li>  
           <li><span class="step-n">4</span><span>量取哥顿金酒 45ml 倒入冰杯</span></li>  
-          <li><span class="step-n">5</span><span>怡泉汤力水沿杯壁缓慢轻柔倒入，温柔提拉融合，尽量保留气泡</span></li>  
+          <li><span class="step-n">5</span><span>怡泉汤力水沿杯壁缓慢轻柔倒入，温柔提拉，尽量保留气泡</span></li>  
           <li><span class="step-n">6</span><span>青柠挤汁滴落冰块，最后投入作装饰</span></li>  
         </ul>  
       </div>  
@@ -715,127 +393,115 @@ text-transform: uppercase;
 </footer>  
   
 <script>  
+// ── 在这里填你的 API Key ──────────────────────────  
+const API_KEY = 'YOUR_API_KEY_HERE';  
+// ─────────────────────────────────────────────────  
+  
 const ingredients = new Set();  
   
 function updateBtn() {  
   document.getElementById('genBtn').disabled = ingredients.size === 0;  
 }  
-  
 function renderChips() {  
   const wrap = document.getElementById('chipsWrap');  
   wrap.innerHTML = '';  
   ingredients.forEach(name => {  
     const c = document.createElement('div');  
     c.className = 'chip';  
-    c.innerHTML = `<span>${name}</span><button onclick="removeIng('${name}')" title="移除">×</button>`;  
+    c.innerHTML = `<span>${name}</span><button onclick="removeIng('${name}')">×</button>`;  
     wrap.appendChild(c);  
   });  
 }  
-  
 function addIng(name) {  
   const input = document.getElementById('ingInput');  
   const val = (name || input.value).trim();  
   if (!val || ingredients.has(val)) { input.value = ''; return; }  
-  ingredients.add(val);  
-  input.value = '';  
-  renderChips();  
-  updateBtn();  
+  ingredients.add(val); input.value = '';  
+  renderChips(); updateBtn();  
 }  
-  
 function quickAdd(el) { addIng(el.textContent); }  
 function removeIng(name) { ingredients.delete(name); renderChips(); updateBtn(); }  
-  
-document.getElementById('ingInput').addEventListener('keydown', e => {  
-  if (e.key === 'Enter') addIng();  
-});  
+document.getElementById('ingInput').addEventListener('keydown', e => { if (e.key === 'Enter') addIng(); });  
   
 function toggleRecipe(row) {  
   row.classList.toggle('open');  
-  const hint = row.querySelector('.recipe-toggle-hint');  
-  hint.textContent = row.classList.contains('open') ? '收起 ↑' : '展开 ↓';  
+  row.querySelector('.recipe-toggle-hint').textContent = row.classList.contains('open') ? '收起 ↑' : '展开 ↓';  
 }  
   
-const RECIPE_CTX = `你是一个专业调酒顾问。用户配方本：  
-【金菲士】金酒45ml+柠檬汁30ml+糖浆15ml+苏打水+冰块。摇壶15秒至起霜→不过滤倒入高球杯→沿壁倒苏打水→提拉→柠檬装饰。变化：蛋黄=黄金菲士；蛋清=银菲士。  
-【金汤力】哥顿金酒45ml+怡泉汤力水+青柠+冰块。洗冰→冰杯→酒水预冷→倒酒→沿壁倒汤力水提拉→青柠装饰。`;  
+const SYSTEM = `你是一个专业调酒顾问。用户配方本：  
+【金菲士】金酒45ml+柠檬汁30ml+糖浆15ml+苏打水+冰块。摇壶15秒至起霜→不过滤倒高球杯→沿壁倒苏打水→提拉→柠檬装饰。变化：蛋黄=黄金菲士；蛋清=银菲士。  
+【金汤力】哥顿金酒45ml+怡泉汤力水+青柠+冰块。洗冰→冰杯→预冷→倒酒→沿壁倒汤力水提拉→青柠装饰。  
+根据用户手边原料，优先匹配配方本，否则创意推荐。  
+回复格式（严格按此）：  
+酒名：[酒名]  
+风格：[2-4字]  
+---  
+【原料】  
+每行一项  
+  
+【步骤】  
+1. 步骤  
+  
+【调酒师的话】  
+1-2句有氛围感的话。`;  
   
 async function generate() {  
-  const btn = document.getElementById('genBtn');  
   const area = document.getElementById('resultArea');  
+  const btn = document.getElementById('genBtn');  
   const ingList = [...ingredients].join('、');  
   
-  area.innerHTML = '<div class="loading-bar" id="lb" style="display:block"></div>';  
+  area.innerHTML = '<div class="loading-bar" style="display:block"></div>';  
   btn.disabled = true;  
-  
   document.getElementById('tool').scrollIntoView({ behavior: 'smooth' });  
   
   try {  
-    const res = await fetch('https://api.anthropic.com/v1/messages', {
-      headers: { 'Content-Type': 'application/json', 'x-api-key': 'YOUR_ANTHROPIC_API_KEY', 'anthropic-version': '2023-06-01' },  
+    const res = await fetch('https://api.anthropic.com/v1/messages', {  
       method: 'POST',  
-      headers: { 'Content-Type': 'application/json' },  
+      headers: {  
+        'Content-Type': 'application/json',  
+        'x-api-key': API_KEY,  
+        'anthropic-version': '2023-06-01',  
+        'anthropic-dangerous-direct-browser-access': 'true'  
+      },  
       body: JSON.stringify({  
         model: 'claude-sonnet-4-20250514',  
         max_tokens: 1000,  
-        system: RECIPE_CTX + `\n\n回复格式（严格按此，不加多余标记）：  
-酒名：[酒名]  
-风格：[2-4字风格描述]  
----  
-【原料】  
-每行一项原料和用量  
-  
-【步骤】  
-1. 第一步  
-2. 以此类推  
-  
-【调酒师的话】  
-1-2句有氛围感的话，略带文学性，不说废话。`,  
+        system: SYSTEM,  
         messages: [{ role: 'user', content: `我手边有：${ingList}` }]  
       })  
     });  
-  
+    if (!res.ok) { const e = await res.json(); throw new Error(e.error?.message || `HTTP ${res.status}`); }  
     const data = await res.json();  
-    const text = data.content?.[0]?.text || '';  
-    renderResult(text, area);  
+    renderResult(data.content?.[0]?.text || '', area);  
   } catch(e) {  
-    area.innerHTML = '<p class="result-placeholder">网络出了问题，再试一次？</p>';  
+    area.innerHTML = `<p class="result-placeholder" style="color:#c0392b">${e.message}</p>`;  
   } finally {  
-    btn.disabled = false;  
-    updateBtn();  
+    btn.disabled = false; updateBtn();  
   }  
 }  
   
 function renderResult(text, area) {  
   const lines = text.split('\n');  
   let name = '', style = '', body = '', inBody = false;  
-  for (const line of lines) {  
-    if (line.startsWith('酒名：')) { name = line.slice(3).trim(); continue; }  
-    if (line.startsWith('风格：')) { style = line.slice(3).trim(); continue; }  
-    if (line.startsWith('---')) { inBody = true; continue; }  
-    if (inBody) body += line + '\n';  
+  for (const l of lines) {  
+    if (l.startsWith('酒名：')) { name = l.slice(3).trim(); continue; }  
+    if (l.startsWith('风格：')) { style = l.slice(3).trim(); continue; }  
+    if (l.startsWith('---')) { inBody = true; continue; }  
+    if (inBody) body += l + '\n';  
   }  
-  
-  const sections = body.trim().split(/【([^】]+)】/);  
-  let bodyHTML = '';  
-  for (let i = 0; i < sections.length; i++) {  
-    const part = sections[i].trim();  
-    if (!part) continue;  
-    if (i % 2 === 1) {  
-      bodyHTML += `<span class="rh">${part}</span>`;  
-    } else {  
-      part.split('\n').filter(l=>l.trim()).forEach(l => {  
-        bodyHTML += `<p>${l}</p>`;  
-      });  
-    }  
+  const parts = body.trim().split(/【([^】]+)】/);  
+  let html = '';  
+  for (let i = 0; i < parts.length; i++) {  
+    const p = parts[i].trim();  
+    if (!p) continue;  
+    if (i % 2 === 1) { html += `<span class="rh">${p}</span>`; }  
+    else { p.split('\n').filter(l=>l.trim()).forEach(l => { html += `<p>${l}</p>`; }); }  
   }  
-  
-  area.innerHTML = `  
-    <div class="result-content" style="display:block">  
-      <div class="result-name">${name || '今晚的特调'}</div>  
-      <div class="result-style">${style ? '· ' + style + ' ·' : ''}</div>  
-      <div class="result-body">${bodyHTML}</div>  
-    </div>  
-  `;  
+  area.innerHTML = `<div style="animation:fadeUp 0.5s ease">  
+    <div class="result-name">${name || '今晚的特调'}</div>  
+    <div class="result-style">${style ? '· '+style+' ·' : ''}</div>  
+    <div class="result-body">${html}</div>  
+  </div>`;  
 }  
 </script>  
   
